@@ -1,0 +1,5 @@
+pip install mssql-django;
+pip install django
+django-admin startproject manager
+python manage.py startapp login
+in sql-server protocol_name = TCP/IP
