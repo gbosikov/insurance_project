@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
+    'policy.apps.PolicyConfig',
+    'claim.apps.ClaimConfig'
 ]
 
 MIDDLEWARE = [

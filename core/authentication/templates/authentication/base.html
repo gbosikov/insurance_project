@@ -82,18 +82,30 @@
                           <h3>Welcome Back</h3>
                         </div>
                       </div>
-                      <form>
-                        <div class="mb-3"><label class="form-label" for="card-email">Username</label><input class="form-control" id="card-email" type="email"></div>
+                      <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
                         <div class="mb-3">
-                          <div class="d-flex justify-content-between"><label class="form-label" for="card-password">Password</label></div><input class="form-control" id="card-password" type="password">
+                          <label class="form-label" for="card-email">Username</label>
+                          <input class="form-control" id="card-user" type="user">
+                        </div>
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between">
+                            <label class="form-label" for="card-password">Password</label>
+                          </div>
+                          <input class="form-control" id="card-password" type="password">
                         </div>
                         <div class="row flex-between-center">
                           <div class="col-auto">
-                            <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="card-checkbox" checked="checked"><label class="form-check-label mb-0" for="card-checkbox">Remember me</label></div>
+                            <div class="form-check mb-0">
+                              <input class="form-check-input" type="checkbox" id="card-checkbox" checked="checked">
+                              <label class="form-check-label mb-0" for="card-checkbox">Remember me</label>
+                            </div>
                           </div>
                           <div class="col-auto"><a class="fs--1" href="forgot-password.html">Forgot Password?</a></div>
                         </div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button></div>
+                        <div class="mb-3">
+                          <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button>
+                        </div>
                       </form>
                       <div class="position-relative mt-4">
                         <hr>
