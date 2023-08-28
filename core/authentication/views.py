@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
-from django.contrib.auth import login
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -11,8 +10,9 @@ from django.urls import reverse
 
 
 def login_view(request):
+    form = AuthenticationForm(data=request.POST)
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+
         if form.is_valid():
             authenticated_user = authenticate(username=request.POST['card-user'], password=request.POST['card-password'])
             if authenticated_user is not None:
