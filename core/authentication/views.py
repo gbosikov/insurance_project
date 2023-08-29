@@ -35,3 +35,7 @@ def logout_view(request):
 @login_required
 def success_view(request):
     return render(request, 'authentication/success.html', {'username': request.user.username})
+
+
+def forgot_password_view(request):
+    return render(request, 'authentication/forgot-password.html')
