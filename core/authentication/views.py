@@ -1,29 +1,37 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.shortcuts import redirect
+from django.contrib.auth import login, logout
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
 def login_view(request):
-    form = AuthenticationForm(data=request.POST)
     if request.method == 'POST':
-
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            authenticated_user = authenticate(username=request.POST['card-user'], password=request.POST['card-password'])
-            if authenticated_user is not None:
-                login(request, authenticated_user)
-                return HttpResponseRedirect(reverse('authentication/login.html'))  # Replace 'success_page' with the actual URL name
+            user = form.get_user()
+            login(request, user)
+            return redirect('success')
         else:
-            print(form)
-            return render(request, 'authentication/login.html', {'login_form': form})
+            messages.error(request, 'Invalid credentials')
     else:
         form = AuthenticationForm()
-    return render(request, 'authentication/base.html', {'login_form': form})
+
+    return render(request, 'authentication/base.html', {'form': form})
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
+
+@login_required
+def success_view(request):
+    return render(request, 'authentication/success.html', {'username': request.user.username})
