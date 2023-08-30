@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+import customer.apps
+import environment.apps
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
     'policy.apps.PolicyConfig',
-    'claim.apps.ClaimConfig'
+    'claim.apps.ClaimConfig',
+    'customer.apps.CustomerConfig',
+    'environment.apps.EnvironmentConfig',
 ]
 
 
