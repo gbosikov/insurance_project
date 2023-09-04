@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+import contracts.apps
 import customer.apps
 import environment.apps
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'claim.apps.ClaimConfig',
     'customer.apps.CustomerConfig',
     'environment.apps.EnvironmentConfig',
+    'contracts.apps.ContractsConfig',
 ]
 
 
