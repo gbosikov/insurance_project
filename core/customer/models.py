@@ -17,7 +17,6 @@ class Customer(models.Model):
     sname_r = models.CharField(max_length=30, null=False, verbose_name='russian name')
     cust_type = models.IntegerField(null=False, default=0, verbose_name='all types of customers')
     parent_cust = models.IntegerField(null=True, default=None, verbose_name='parent customer')
-    is_org = models.BooleanField(default=False)
     org_type = models.IntegerField(null=True, default=None)
     sex = models.IntegerField(null=False)
     date_of_birth = models.DateField(null=False)
@@ -37,5 +36,7 @@ class Cust_Name_His(models.Model):
     sname_g = models.CharField(max_length=30, null=False)
     sname_r = models.CharField(max_length=30, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE, verbose_name='user who add row')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
     host_name = models.CharField(max_length=30, null=False)
+
+
