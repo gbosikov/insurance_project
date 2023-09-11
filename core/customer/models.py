@@ -27,7 +27,6 @@ class Customer(models.Model):
     vip_state = models.BooleanField(default=0)
 
 
-
 class Cust_Name_His(models.Model):
     name_e = models.CharField(max_length=30, null=False)
     name_g = models.CharField(max_length=30, null=False)
@@ -36,7 +35,7 @@ class Cust_Name_His(models.Model):
     sname_g = models.CharField(max_length=30, null=False)
     sname_r = models.CharField(max_length=30, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
+    username = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
     host_name = models.CharField(max_length=30, null=False)
 
 

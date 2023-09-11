@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
+
     {% block head %}
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +52,12 @@
         userLinkRTL.setAttribute('disabled', true);
       }
     </script>
-    {% endblock head %}
+
+    {% endblock %}
+
   </head>
 
+  {% block body %}
   <body>
     <!-- ===============================================-->
     <!--    Main Content-->
@@ -221,5 +226,5 @@
     <script src="{% static 'authentication/js/list.min.js' %}"></script>
     <script src="{% static 'authentication/js/theme.js' %}"></script>
   </body>
-
+{% endblock body %}
 </html>
