@@ -3377,7 +3377,7 @@ var leafletActiveUserInit = function leafletActiveUserInit() {
     var tileLayerTheme = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
     var tiles = L.tileLayer.colorFilter(tileLayerTheme, {
       attribution: null,
-      transparent: true,
+      transparent: false,
       filter: getFilterColor()
     });
     var map = L.map('map', {
