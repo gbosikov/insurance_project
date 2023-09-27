@@ -14,17 +14,18 @@ from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     if request.method == 'POST':
+        print(request.user)
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('success')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid credentials')
     else:
         form = AuthenticationForm()
 
-    return render(request, 'authentication/base.html', {'form': form})
+    return render(request, 'authentication/login.html', {'form': form})
 
 
 def logout_view(request):
@@ -33,8 +34,8 @@ def logout_view(request):
 
 
 @login_required
-def success_view(request):
-    return render(request, 'authentication/success.html', {'username': request.user.username})
+def home_view(request):
+    return render(request, 'authentication/home.html', {'username': request.user.username})
 
 
 def forgot_password_view(request):
