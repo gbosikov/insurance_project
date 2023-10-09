@@ -26,6 +26,9 @@ class Customer(models.Model):
     close_date = models.DateTimeField(null=True, default=None)
     vip_state = models.BooleanField(default=0)
 
+    class Meta:
+        db_table = 'customers'
+
 
 class Cust_Name_His(models.Model):
     name_e = models.CharField(max_length=30, null=False)
@@ -37,5 +40,8 @@ class Cust_Name_His(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
     host_name = models.CharField(max_length=30, null=False)
+
+    class Meta:
+        db_table = 'customers_his'
 
 

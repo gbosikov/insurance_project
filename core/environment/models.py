@@ -21,6 +21,7 @@ class Diction(models.Model):
     class Meta:
         verbose_name_plural = 'Diction'
         ordering = ('id',)
+        db_table = 'diction'
 
     def __str__(self):
         return self.name_e
@@ -41,6 +42,7 @@ class InsTypes(models.Model):
     class Meta:
         verbose_name_plural = 'InsTypes'
         ordering = ('id',)
+        db_table = 'ins_types'
 
     def __str__(self):
         return self.name_e
@@ -61,6 +63,7 @@ class Risks(models.Model):
     class Meta:
         verbose_name_plural = 'Risks'
         ordering = ('id',)
+        db_table = 'risks'
 
     def __str__(self):
         return self.name_e
@@ -81,6 +84,7 @@ class Objects(models.Model):
     class Meta:
         verbose_name_plural = 'Objects'
         ordering = ('id',)
+        db_table = 'objects'
 
     def __str__(self):
         return self.name_e
