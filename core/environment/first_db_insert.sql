@@ -2,27 +2,27 @@ USE [ins_db]
 GO
 
 
-ALTER TABLE [dbo].[environment_diction]
+ALTER TABLE [dbo].[diction]
             ADD CONSTRAINT [DF_environment_diction_created_at]
             DEFAULT (getdate()) FOR [created_at]
 
 ALTER TABLE
-            [dbo].[environment_instypes]
+            [dbo].[ins_types]
             ADD  CONSTRAINT [DF_environment_instypes_created_at]
             DEFAULT (getdate()) FOR [created_at]
 
 
 ALTER TABLE
-            [dbo].[environment_risks]
+            [dbo].[risks]
             ADD  CONSTRAINT [DF_environment_risks_created_at]
             DEFAULT (getdate()) FOR [created_at]
 
 ALTER TABLE
-            [dbo].[environment_objects]
+            [dbo].[objects]
             ADD  CONSTRAINT [DF_environment_robjects_created_at]
             DEFAULT (getdate()) FOR [created_at]
 
-INSERT INTO [dbo].[environment_diction]
+INSERT INTO [dbo].[diction]
            ([custom_name]
            ,[name_e]
            ,[name_g]
@@ -45,7 +45,7 @@ INSERT INTO [dbo].[environment_diction]
 
 
 
-INSERT INTO [dbo].[environment_instypes]
+INSERT INTO [dbo].[ins_types]
            ([custom_name]
            ,[name_e]
            ,[name_g]
