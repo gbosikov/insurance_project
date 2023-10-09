@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib.auth import login, logout
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.http import HttpResponseNotFound
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -40,3 +38,7 @@ def home_view(request):
 
 def forgot_password_view(request):
     return render(request, 'authentication/forgot-password.html')
+
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound()

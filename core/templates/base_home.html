@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +14,10 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'authentication/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'authentication/img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'authentication/img/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'authentication/img/favicon.ico' %}">
     <link rel="manifest" href="{% static 'authentication/json/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
     <script src="{% static 'authentication/js/config.js' %}"></script>
@@ -52,6 +51,7 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
+    {% block main %}
     <main class="main" id="top">
       <div class="container" data-layout="container">
         <script>
@@ -3875,7 +3875,9 @@
           </div>
         </div>
       </div>
-    </main><!-- ===============================================-->
+    </main>
+    {% endblock %}
+    <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
 
