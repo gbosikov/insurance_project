@@ -38,7 +38,7 @@ class Cust_Name_His(models.Model):
     sname_g = models.CharField(max_length=30, null=False)
     sname_r = models.CharField(max_length=30, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    username = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user who add row')
     host_name = models.CharField(max_length=30, null=False)
 
     class Meta:
